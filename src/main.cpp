@@ -69,7 +69,8 @@ int main(){
     CROW_ROUTE(app, "/<string>")([&file_server](const std::string& filename){
         return file_server.serve_file(filename);
     });
-    
+
     app.port(8080).multithreaded().run();
+    app.port(8081).multithreaded().run();
     return 0;
 }
