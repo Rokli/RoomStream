@@ -255,7 +255,11 @@ class ChatCubeClient {
     }
 
     handleError(data) {
-        this.showNotification('Ошибка', data.message);
+        const errorMessage = (typeof data === "string") 
+            ? data 
+            : (data?.message || "Неизвестная ошибка");
+
+        this.showNotification("Ошибка", errorMessage);
     }
 
     sendWebSocketMessage(message) {
