@@ -1,0 +1,392 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 0 50px rgba(0,0,0,0.1);
+}
+
+/* Боковая панель */
+.sidebar {
+    width: 300px;
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #34495e;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #34495e;
+    border-bottom: 1px solid #4a6278;
+}
+
+.sidebar-header h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+.user-info input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #4a6278;
+    color: white;
+}
+
+.user-info input::placeholder {
+    color: #bdc3c7;
+}
+
+#connectBtn {
+    width: 100%;
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#connectBtn:hover {
+    background: #219653;
+}
+
+#connectBtn:disabled {
+    background: #7f8c8d;
+    cursor: not-allowed;
+}
+
+/* Секции боковой панели */
+.rooms-section, .online-users {
+    padding: 20px;
+    flex: 1;
+}
+
+.rooms-section h3, .online-users h3 {
+    margin-bottom: 15px;
+    color: #ecf0f1;
+    font-size: 1.1em;
+}
+
+.room-actions {
+    margin-bottom: 15px;
+}
+
+.room-actions input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    background: #4a6278;
+    color: white;
+}
+
+#createRoomBtn {
+    width: 100%;
+    padding: 8px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#createRoomBtn:hover {
+    background: #2980b9;
+}
+
+/* Списки */
+.rooms-list, .users-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.room-item, .user-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #34495e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.room-item:hover, .user-item:hover {
+    background: #4a6278;
+}
+
+.room-item.active {
+    background: #3498db;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+}
+
+.user-status {
+    width: 8px;
+    height: 8px;
+    background: #27ae60;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Область чата */
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #ecf0f1;
+}
+
+.chat-header {
+    padding: 20px;
+    background: white;
+    border-bottom: 1px solid #bdc3c7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    color: #2c3e50;
+}
+
+.room-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#roomUsers {
+    color: #7f8c8d;
+}
+
+.btn-secondary {
+    padding: 8px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #c0392b;
+}
+
+/* Контейнер сообщений */
+.messages-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: white;
+}
+
+.welcome-message {
+    text-align: center;
+    color: #7f8c8d;
+    margin-top: 50px;
+}
+
+.welcome-message h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message.own {
+    background: #3498db;
+    color: white;
+    margin-left: auto;
+}
+
+.message.other {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.message.system {
+    background: #f39c12;
+    color: white;
+    text-align: center;
+    max-width: 100%;
+    font-style: italic;
+}
+
+.message-header {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.message-text {
+    line-height: 1.4;
+}
+
+/* Поле ввода */
+.message-input-area {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #bdc3c7;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#messageInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#sendBtn {
+    padding: 12px 20px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sendBtn:hover:not(:disabled) {
+    background: #219653;
+}
+
+#sendBtn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.chat-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.connection-status {
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+.connection-status.connected {
+    color: #27ae60;
+}
+
+.connection-status.disconnected {
+    color: #e74c3c;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+#modalCloseBtn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Полоса прокрутки */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: 40vh;
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+}

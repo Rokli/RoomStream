@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatCube - Веб-чат</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>💬 ChatCube</h1>
+                <div class="user-info">
+                    <input type="text" id="usernameInput" placeholder="Введите имя" maxlength="20">
+                    <button id="connectBtn">Подключиться</button>
+                </div>
+            </div>
+
+            <div class="rooms-section">
+                <h3>Комнаты</h3>
+                <div class="room-actions">
+                    <input type="text" id="newRoomInput" placeholder="Название комнаты">
+                    <button id="createRoomBtn">+ Создать</button>
+                </div>
+                <div id="roomsList" class="rooms-list">
+                </div>
+            </div>
+
+            <div class="online-users">
+                <h3>Онлайн (<span id="onlineCount">0</span>)</h3>
+                <div id="usersList" class="users-list">
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header">
+                <h2 id="currentRoom">Выберите комнату</h2>
+                <div class="room-info">
+                    <span id="roomUsers">0 пользователей</span>
+                    <button id="leaveRoomBtn" class="btn-secondary">Выйти</button>
+                </div>
+            </div>
+
+            <div id="messagesContainer" class="messages-container">
+                <div class="welcome-message">
+                    <h3>Добро пожаловать в ChatCube! 🚀</h3>
+                    <p>Выберите комнату слева чтобы начать общение</p>
+                </div>
+            </div>
+
+            <div class="message-input-area">
+                <div class="input-container">
+                    <input type="text" id="messageInput" placeholder="Введите сообщение..." disabled>
+                    <button id="sendBtn" disabled>Отправить</button>
+                </div>
+                <div class="chat-actions">
+                    <button id="clearChatBtn" class="btn-small">Очистить чат</button>
+                    <span class="connection-status" id="connectionStatus">Не подключено</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Уведомление</h3>
+            <p id="modalMessage"></p>
+            <button id="modalCloseBtn">OK</button>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>
