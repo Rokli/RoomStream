@@ -71,6 +71,5 @@ int main(){
     });
 
     app.port(8080).multithreaded().run();
-    app.port(8081).multithreaded().run();
     return 0;
 }
